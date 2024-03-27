@@ -19,24 +19,24 @@ spec:
 
 ---
 
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: external-secrets-operator
-  namespace: {{ .Values.namespace }}
-spec:
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: {{ .Values.namespace }}
-  project: hub
-  source:
-    repoURL: {{ .Values.gitrepo }}
-    targetRevision: main
-    path: components/eso
-  syncPolicy:
-    automated: {}
-    retry:
-      limit: 20
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: external-secrets-operator
+#   namespace: {{ .Values.namespace }}
+# spec:
+#   destination:
+#     server: https://kubernetes.default.svc
+#     namespace: {{ .Values.namespace }}
+#   project: hub
+#   source:
+#     repoURL: {{ .Values.gitrepo }}
+#     targetRevision: main
+#     path: components/eso
+#   syncPolicy:
+#     automated: {}
+#     retry:
+#       limit: 20
 # ---
 # apiVersion: argoproj.io/v1alpha1
 # kind: Application
