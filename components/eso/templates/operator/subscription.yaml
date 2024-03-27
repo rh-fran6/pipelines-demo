@@ -4,7 +4,7 @@ metadata:
   name: {{ .Values.name }}-subscription
   # annotations:
   #   argocd.argoproj.io/sync-wave: "1"
-  namespace: {{ .Values.namespace }}
+  namespace: {{ .Values.openshift.namespace }}
 spec:
   channel: {{ .Values.version }} 
   installPlanApproval: {{ .Values.installPlanApproval }}

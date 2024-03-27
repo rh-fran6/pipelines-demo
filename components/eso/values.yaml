@@ -4,6 +4,9 @@ namespace: external-secrets-operator
 
 name: external-secrets
 
+openshift:
+   namespace: openshift-operators
+
 version: "stable"
 
 installPlanApproval: "Automatic"
