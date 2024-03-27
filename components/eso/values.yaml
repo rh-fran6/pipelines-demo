@@ -2,7 +2,7 @@ replicaCount: 1
 ## Operator Install Helm Chart ##
 namespace: external-secrets-operator
 
-name: external-secrets
+name: external-secrets7
 
 version: "stable"
 

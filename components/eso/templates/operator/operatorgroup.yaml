@@ -3,7 +3,7 @@ kind: OperatorGroup
 metadata:
   name: {{ .Values.name }}-operatorgroup
   namespace: {{ .Values.namespace }}
-  annotations:
-    argocd.argoproj.io/sync-wave: "1"
+  # annotations:
+  #   argocd.argoproj.io/sync-wave: "1"
 spec:
   upgradeStrategy: Default
