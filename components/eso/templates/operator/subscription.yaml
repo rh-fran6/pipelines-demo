@@ -8,6 +8,6 @@ metadata:
 spec:
   channel: {{ .Values.version }} 
   installPlanApproval: {{ .Values.installPlanApproval }}
-  name: {{ .Values.name }} 
+  name: {{ .Values.name }}-operator
   source: {{ .Values.source }} 
   sourceNamespace: {{ .Values.sourceNamespace }}
