@@ -7,7 +7,7 @@ metadata:
     argocd.argoproj.io/sync-wave: "0"
   labels:
     openshift.io/cluster-monitoring: "true"
-    argocd.argoproj.io/managed-by: {{ .name }}
+    argocd.argoproj.io/managed-by: openshift-gitops
 spec: {}
 ---
 {{- end }}
