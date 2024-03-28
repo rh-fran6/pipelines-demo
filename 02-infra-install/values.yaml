@@ -3,7 +3,7 @@
 installnamespace: openshift-operators
 
 defaultargo:
-   namespace: openshift-operators
+   namespace: openshift-gitops
    server: https://kubernetes.default.svc
    name: main-components
    project: default
@@ -53,33 +53,3 @@ hubargo:
        path: 03-applications/01-config-gitops-apps/operator-configs/pipelines
 
     
-
-# namespace: openshift-operators
-
-# application:
-#    namespace: demo-app
-
-# hub:
-#   namespace: demo-hub
-
-# name: openshift-gitops
-
-# version: "latest"
-
-# installPlanApproval: "Automatic"
-
-# source: "redhat-operators"
-
-# sourceNamespace: "openshift-marketplace"
-
-# ## Instance customization ##
-# insecureEdgeTerminationPolicy: "Redirect"
-
-# termination: "reencrypt"
-
-# gitops:
-#    project:
-#        - name: hub
-#        - name: apps
-
-# gitrepo: https://github.com/rh-fran6/pipelines-demo.git

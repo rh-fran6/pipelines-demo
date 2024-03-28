@@ -1,11 +1,12 @@
-{{ $hubnamespace := .Values.defaultargo.namespace }}
-{{ $hubserver := .Values.defaultargo.server }}
+{{ $hubnamespace := .Values.hubargo.namespace }}
+{{ $defnamespace := .Values.defaultargo.namespace }}
+{{ $hubserver := .Values.hubargo.server }}
 {{- range $key, $value := .Values.hubargo.app }}
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: {{ .name }}
-  namespace: {{ $hubnamespace }}
+  namespace: {{ $defnamespace }}
 spec:
   destination:
     server: {{ $hubserver }}
