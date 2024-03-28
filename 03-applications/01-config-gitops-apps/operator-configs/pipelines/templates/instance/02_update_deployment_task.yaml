@@ -34,3 +34,6 @@ spec:
               "patched_at": '\"$patched_at_timestamp\"'
             }
           }}}}'
+
+
+# tkn pipeline start build-and-deploy -w name=shared-workspace,volumeClaimTemplateFile=pipelines-tutorial/01_pipeline/03_persistent_volume_claim.yaml  -p deployment-name=pipelines-vote-ui -p git-url=https://github.com/rh-fran6/pipelines-vote-ui.git -p IMAGE="image-registry.openshift-image-registry.svc:5000/ddd/pipelines-vote-ui"
