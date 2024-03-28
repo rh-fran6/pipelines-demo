@@ -1,9 +1,10 @@
+{{ $namespace := .Values.application.namespace }}
 {{- range $key, $value := .Values.projects }}
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
   name: {{ .name }}
-  namespace: {{ .Values.application.namespace }}
+  namespace: {{ $namespace }}
 spec:
   description: "GitOps for OpenShift Pipelines Demo"
   destinations:
