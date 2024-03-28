@@ -1,6 +1,6 @@
 ## Operator Install Helm Chart ##
 
-namespace: openshift-operators
+namespace: openshift-gitops
 
 application:
    namespace: demo-app
