@@ -13,11 +13,16 @@ defaultargo:
        targetrevision: main
        path: 03-applications/02-main-gitops-apps/namespaces
 
-     - name: operators-install
+     - name: eso-install
        repourl: https://github.com/rh-fran6/pipelines-demo.git
        targetrevision: main
-       path: 03-applications/02-main-gitops-apps/operators-install
-
+       path: 03-applications/03-applications/02-main-gitops-apps/operators-install/external-secrets-operator
+     
+     - name: pipelines-install
+       repourl: https://github.com/rh-fran6/pipelines-demo.git
+       targetrevision: main
+       path: 03-applications/03-applications/02-main-gitops-apps/operators-install/openshift-pipelines
+     
      - name: prep-tasks
        repourl: https://github.com/rh-fran6/pipelines-demo.git
        targetrevision: main
