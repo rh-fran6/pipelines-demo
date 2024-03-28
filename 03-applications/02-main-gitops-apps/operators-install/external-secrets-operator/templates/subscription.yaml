@@ -1,0 +1,13 @@
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: {{ .Values.subscription.operator }}-subscription
+  # annotations:
+  #   argocd.argoproj.io/sync-wave: "1"
+  namespace: {{ .Values.subscription.namespace }}
+spec:
+  channel: {{ .Values.subscription.channel }} 
+  installPlanApproval: {{ .Values.subscription.installPlanApproval }}
+  name: {{ .Values.subscription.name }} 
+  source: {{ .Values.subscription.source }} 
+  sourceNamespace: {{ .Values.subscription.sourceNamespace }}

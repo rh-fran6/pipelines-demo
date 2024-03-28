@@ -1,0 +1,11 @@
+## Operator Install Helm Chart ##
+
+namespace: openshift-operators
+
+application:
+   namespace: demo-app
+
+projects:
+  - name: pipeline
+  - name: demo-app
+  - name: infra

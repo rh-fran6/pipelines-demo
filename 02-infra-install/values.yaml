@@ -1,0 +1,85 @@
+## Operator Install Helm Chart ##
+
+installnamespace: openshift-operators
+
+defaultargo:
+   namespace: openshift-operators
+   server: https://kubernetes.default.svc
+   name: main-components
+   project: default
+   app:
+     - name: backend-voting-app
+       repourl: https://github.com/rh-fran6/pipelines-demo.git
+       targetrevision: main
+       path: 03-applications/02-main-gitops-apps/namespace
+
+     - name: operators-install
+       repourl: https://github.com/rh-fran6/pipelines-demo.git
+       targetrevision: main
+       path: 03-applications/02-main-gitops-apps/operators-install
+
+     - name: prep-tasks
+       repourl: https://github.com/rh-fran6/pipelines-demo.git
+       targetrevision: main
+       path: 03-applications/02-main-gitops-apps/prep-tasks
+
+
+hubargo:
+  namespace: demo-hub
+  server: https://kubernetes.default.svc
+  app:
+     - name: backend-voting-app
+       repourl: https://github.com/rh-fran6/pipelines-demo.git
+       project: demo-app
+       targetrevision: main
+       path: 03-applications/01-config-gitops-apps/backend-deploy/overlays
+
+     - name: frontend-voting-app
+       repourl: https://github.com/rh-fran6/pipelines-demo.git
+       project: demo-app
+       targetrevision: main
+       path: 03-applications/01-config-gitops-apps/frontend-deploy/overlays
+
+     - name: external-secrets-operator
+       repourl: https://github.com/rh-fran6/pipelines-demo.git
+       project: infra
+       targetrevision: infra
+       path: 03-applications/01-config-gitops-apps/operator-configs/eso
+
+     - name: openshift-pipelines
+       repourl: https://github.com/rh-fran6/pipelines-demo.git
+       project: pipeline
+       targetrevision: pipeline
+       path: 03-applications/01-config-gitops-apps/operator-configs/pipelines
+
+    
+
+# namespace: openshift-operators
+
+# application:
+#    namespace: demo-app
+
+# hub:
+#   namespace: demo-hub
+
+# name: openshift-gitops
+
+# version: "latest"
+
+# installPlanApproval: "Automatic"
+
+# source: "redhat-operators"
+
+# sourceNamespace: "openshift-marketplace"
+
+# ## Instance customization ##
+# insecureEdgeTerminationPolicy: "Redirect"
+
+# termination: "reencrypt"
+
+# gitops:
+#    project:
+#        - name: hub
+#        - name: apps
+
+# gitrepo: https://github.com/rh-fran6/pipelines-demo.git

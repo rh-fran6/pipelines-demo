@@ -1,0 +1,23 @@
+{{ $hubnamespace := .Values.defaultargo.namespace }}
+{{ $hubserver := .Values.defaultargo.server }}
+{{- range $key, $value := .Values.hubargo.app }}
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: {{ .name }}
+  namespace: {{ $hubnamespace }}
+spec:
+  destination:
+    server: {{ $hubserver }}
+    namespace: {{ $hubnamespace }}  
+  project: {{ .project }}
+  sources:
+    - repoURL: {{ .repourl }}
+      targetRevision: {{ .targetrevision }}
+      path: {{ .path }}
+  syncPolicy:
+    automated: {}
+    retry:
+      limit: 20
+---
+{{- end }}

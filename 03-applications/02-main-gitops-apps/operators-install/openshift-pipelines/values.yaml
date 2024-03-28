@@ -1,0 +1,11 @@
+## Operator Install Helm Chart ##
+
+
+subscription:
+   operator: openshift-pipelines
+   namespace: openshift-operators
+   channel: pipelines-1.9
+   installPlanApproval: Automatic
+   source: redhat-operators
+   sourceNamespace: openshift-marketplace
+   name: openshift-pipelines-operator-rh

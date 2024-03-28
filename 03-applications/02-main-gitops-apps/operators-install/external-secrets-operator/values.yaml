@@ -1,0 +1,11 @@
+## Operator Install Helm Chart ##
+
+
+subscription:
+   operator: eso
+   namespace: openshift-operators
+   channel: stable
+   installPlanApproval: Automatic
+   source: community-operators 
+   sourceNamespace: openshift-marketplace
+   name:  external-secrets-operator

@@ -1,0 +1,25 @@
+{{ $defname := .Values.defaultargo.name }}
+{{ $defnamespace := .Values.defaultargo.namespace }}
+{{ $defserver := .Values.defaultargo.server }}
+{{ $defproject := .Values.defaultargo.project }}
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: {{ $defname }}
+  namespace: {{ $defnamespace }}
+spec:
+  destination:
+    server: {{ $defserver }}
+    namespace: {{ $defnamespace }}  
+  project: {{ $defproject }}
+  sources:
+  {{- range $key, $value := .Values.defaultargo.app }}
+    - repoURL: {{ .repourl }}
+      targetRevision: {{ .targetrevision }}
+      path: {{ .path }}
+  {{- end }}
+  syncPolicy:
+    automated: {}
+    retry:
+      limit: 20
+---
