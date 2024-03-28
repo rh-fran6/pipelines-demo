@@ -48,13 +48,13 @@ hubargo:
      - name: external-secrets-operator
        repourl: https://github.com/rh-fran6/pipelines-demo.git
        project: infra
-       targetrevision: infra
+       targetrevision: main
        path: 03-applications/01-config-gitops-apps/operator-configs/eso
 
      - name: openshift-pipelines
        repourl: https://github.com/rh-fran6/pipelines-demo.git
        project: pipeline
-       targetrevision: pipeline
+       targetrevision: main
        path: 03-applications/01-config-gitops-apps/operator-configs/pipelines
 
     
