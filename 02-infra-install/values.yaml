@@ -8,10 +8,10 @@ defaultargo:
    name: main-components
    project: default
    app:
-     - name: backend-voting-app
+     - name: namespace-creation
        repourl: https://github.com/rh-fran6/pipelines-demo.git
        targetrevision: main
-       path: 03-applications/02-main-gitops-apps/namespace
+       path: 03-applications/02-main-gitops-apps/namespaces
 
      - name: operators-install
        repourl: https://github.com/rh-fran6/pipelines-demo.git
