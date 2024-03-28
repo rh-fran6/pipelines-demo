@@ -7,6 +7,7 @@ externalsecrets:
   secretstorename: akv-cluster-secret-read
   secretname: akv-sp-read
   operatornamespace: openshift-operators
+  pipelinesecretname: pipeline-secret-akv-read
 
 application:
   namespace: demo-app
