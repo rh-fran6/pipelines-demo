@@ -50,7 +50,7 @@ hubargo:
      - name: external-secrets-operator
        repourl: https://github.com/rh-fran6/pipelines-demo.git
        project: infra
-       destinationns: external-secrets-operator
+       destinationns: demo-app
        targetrevision: main
        path: 03-applications/01-config-gitops-apps/operator-configs/eso
 

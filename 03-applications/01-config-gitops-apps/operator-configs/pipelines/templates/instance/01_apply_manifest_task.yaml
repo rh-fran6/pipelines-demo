@@ -2,7 +2,7 @@ apiVersion: tekton.dev/v1
 kind: Task
 metadata:
   name: apply-manifests
-  namespace: demo-pipeline
+  # namespace: demo-pipeline
 spec:
   workspaces:
   - name: source
