@@ -43,26 +43,28 @@ spec:
     params:
     - name: IMAGE
       value: $(params.IMAGE)
+    - name: IMAGE_PUSH_SECRET_NAME
+      value: repo-secret-akv-read
     workspaces:
     - name: source
       workspace: shared-workspace
     runAfter:
     - fetch-repository
-  - name: apply-manifests
-    taskRef:
-      name: apply-manifests
-    workspaces:
-    - name: source
-      workspace: shared-workspace
-    runAfter:
-    - build-image
-  - name: update-deployment
-    taskRef:
-      name: update-deployment
-    params:
-    - name: deployment
-      value: $(params.deployment-name)
-    - name: IMAGE
-      value: $(params.IMAGE)
-    runAfter:
-    - apply-manifests
+  # - name: apply-manifests
+  #   taskRef:
+  #     name: apply-manifests
+  #   workspaces:
+  #   - name: source
+  #     workspace: shared-workspace
+  #   runAfter:
+  #   - build-image
+  # - name: update-deployment
+  #   taskRef:
+  #     name: update-deployment
+  #   params:
+  #   - name: deployment
+  #     value: $(params.deployment-name)
+  #   - name: IMAGE
+  #     value: $(params.IMAGE)
+  #   runAfter:
+  #   - apply-manifests
