@@ -1,4 +1,4 @@
-{{ $namespace := .Values.namespace }}
+{{ $namespace := .Values.hub.namespace }}
 {{- range $key, $value := .Values.projects }}
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
