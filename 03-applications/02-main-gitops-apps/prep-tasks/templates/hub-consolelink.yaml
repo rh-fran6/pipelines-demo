@@ -2,8 +2,6 @@ apiVersion: console.openshift.io/v1
 kind: ConsoleLink
 metadata:
   name: {{ .Values.hub.namespace }}-link
-  annotations:
-    argocd.argoproj.io/sync-wave: "2"
   namespace: {{ .Values.hub.namespace }}
 spec:
   applicationMenu:
