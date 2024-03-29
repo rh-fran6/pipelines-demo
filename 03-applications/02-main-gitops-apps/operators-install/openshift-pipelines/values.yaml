@@ -4,7 +4,7 @@
 subscription:
    operator: openshift-pipelines
    namespace: openshift-operators
-   channel: pipelines-1.9
+   channel: pipelines-1.14
    installPlanApproval: Automatic
    source: redhat-operators
    sourceNamespace: openshift-marketplace
