@@ -6,72 +6,6 @@ metadata:
   annotations:
     argocd.argoproj.io/compare-options: IgnoreExtraneous
 spec:
-  resourceHealthChecks:
-  - kind: PersistentVolumeClaim
-    check: |
-      hs = {}
-      if obj.status ~= nil then
-        if obj.status.phase ~= nil then
-          if obj.status.phase == "Pending" then
-            hs.status = "Healthy"
-            hs.message = obj.status.phase
-            return hs
-          elseif obj.status.phase == "Bound" then
-            hs.status = "Healthy"
-            hs.message = obj.status.phase
-            return hs
-          end
-        end
-      end
-      hs.status = "Progressing"
-      hs.message = "Waiting for PVC"
-      return hs
-  applicationInstanceLabelKey: argocd.argoproj.io/instance
-  applicationSet:
-    resources:
-      limits:
-        cpu: "2"
-        memory: 1Gi
-      requests:
-        cpu: 250m
-        memory: 512Mi
-  controller:
-    processors: {}
-    resources:
-      limits:
-        cpu: "4"
-        memory: 4Gi
-      requests:
-        cpu: 500m
-        memory: 2Gi
-  sso:
-    provider: dex
-    dex:
-      openShiftOAuth: true
-      resources:
-        limits:
-          cpu: 500m
-          memory: 256Mi
-        requests:
-          cpu: 250m
-          memory: 128Mi
-  initialSSHKnownHosts: {}
-  rbac:
-    defaultPolicy: role:admin
-  repo:
-    resources:
-      limits:
-        cpu: "1"
-        memory: 512Mi
-      requests:
-        cpu: 250m
-        memory: 256Mi
-  resourceExclusions: |
-    - apiGroups:
-      - tekton.dev
-      kinds:
-      - TaskRun
-      - PipelineRun
   server:
     autoscale:
       enabled: false
@@ -93,7 +27,97 @@ spec:
         insecureEdgeTerminationPolicy: Redirect
         termination: reencrypt
     service:
-      type: ""
+      type: ''
+  grafana:
+    enabled: false
+    ingress:
+      enabled: false
+    route:
+      enabled: false
+  monitoring:
+    enabled: false
+  notifications:
+    enabled: false
+  prometheus:
+    enabled: false
+    ingress:
+      enabled: false
+    route:
+      enabled: false
+  initialSSHKnownHosts: {}
+  sso:
+    dex:
+      openShiftOAuth: true
+      resources:
+        limits:
+          cpu: 500m
+          memory: 256Mi
+        requests:
+          cpu: 250m
+          memory: 128Mi
+    provider: dex
+  applicationInstanceLabelKey: argocd.argoproj.io/instance
+  applicationSet:
+    resources:
+      limits:
+        cpu: '2'
+        memory: 1Gi
+      requests:
+        cpu: 250m
+        memory: 512Mi
+    webhookServer:
+      ingress:
+        enabled: false
+      route:
+        enabled: false
+  rbac:
+    defaultPolicy: 'role:admin'
+  repo:
+    resources:
+      limits:
+        cpu: '1'
+        memory: 512Mi
+      requests:
+        cpu: 250m
+        memory: 256Mi
+  resourceExclusions: |
+    - apiGroups:
+      - tekton.dev
+      kinds:
+      - TaskRun
+      - PipelineRun
+  resourceHealthChecks:
+    - check: |
+        hs = {}
+        if obj.status ~= nil then
+          if obj.status.phase ~= nil then
+            if obj.status.phase == "Pending" then
+              hs.status = "Healthy"
+              hs.message = obj.status.phase
+              return hs
+            elseif obj.status.phase == "Bound" then
+              hs.status = "Healthy"
+              hs.message = obj.status.phase
+              return hs
+            end
+          end
+        end
+        hs.status = "Progressing"
+        hs.message = "Waiting for PVC"
+        return hs
+      kind: PersistentVolumeClaim
+  ha:
+    enabled: false
   tls:
     ca: {}
-status:
+  redis: {}
+  controller:
+    processors: {}
+    resources:
+      limits:
+        cpu: '4'
+        memory: 4Gi
+      requests:
+        cpu: 500m
+        memory: 2Gi
+    sharding: {}
