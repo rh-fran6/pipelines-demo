@@ -36,24 +36,28 @@ hubargo:
      - name: backend-voting-app
        repourl: https://github.com/rh-fran6/pipelines-demo.git
        project: demo-app
+       destinationns: demo-app
        targetrevision: main
        path: 03-applications/01-config-gitops-apps/backend-deploy/overlays
 
      - name: frontend-voting-app
        repourl: https://github.com/rh-fran6/pipelines-demo.git
        project: demo-app
+       destinationns: demo-app
        targetrevision: main
        path: 03-applications/01-config-gitops-apps/frontend-deploy/overlays
 
      - name: external-secrets-operator
        repourl: https://github.com/rh-fran6/pipelines-demo.git
        project: infra
+       destinationns: external-secrets-operator
        targetrevision: main
        path: 03-applications/01-config-gitops-apps/operator-configs/eso
 
      - name: pipelines-config
        repourl: https://github.com/rh-fran6/pipelines-demo.git
        project: pipeline
+       destinationns: demo-pipeline
        targetrevision: main
        path: 03-applications/01-config-gitops-apps/operator-configs/pipelines
 
