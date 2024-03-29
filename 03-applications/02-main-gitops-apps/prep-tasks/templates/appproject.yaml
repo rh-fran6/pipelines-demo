@@ -7,18 +7,20 @@ metadata:
   namespace: {{ $namespace }}
 spec:
   description: "GitOps for OpenShift Pipelines Demo"
-  destinations:
-  - namespace: '*'
-    server: '*'
-  clusterResourceWhitelist:
-  - group: '*'
-    kind: '*'
-  namespaceResourceWhitelist:
-  - group: '*'
-    kind: '*'
-  sourceRepos:
-  - '*'
-status: {}
+  sourceNamespaces: 
+    - demo-app
+#   destinations:
+#   - namespace: '*'
+#     server: '*'
+#   clusterResourceWhitelist:
+#   - group: '*'
+#     kind: '*'
+#   namespaceResourceWhitelist:
+#   - group: '*'
+#     kind: '*'
+#   sourceRepos:
+#   - '*'
+# status: {}
 ---
 {{- end }}
 
