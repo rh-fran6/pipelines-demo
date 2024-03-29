@@ -5,6 +5,9 @@ namespace: openshift-gitops
 application:
    namespace: demo-app
 
+hub:
+   namespace: demo-hub
+
 projects:
   - name: pipeline
   - name: demo-app

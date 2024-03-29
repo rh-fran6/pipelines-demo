@@ -8,7 +8,7 @@ metadata:
 spec:
   description: "GitOps for OpenShift Pipelines Demo"
   sourceNamespaces: 
-    - demo-app
+    - demo-hub
 #   destinations:
 #   - namespace: '*'
 #     server: '*'

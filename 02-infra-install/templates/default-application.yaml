@@ -6,7 +6,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: {{ .name }}
-  namespace: demo-app ## {{ $defnamespace }}
+  namespace: demo-hub ## {{ $defnamespace }}
 spec:
   destination:
     server: {{ $hubserver }}
