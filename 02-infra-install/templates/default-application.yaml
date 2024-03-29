@@ -10,7 +10,7 @@ metadata:
 spec:
   destination:
     server: {{ $hubserver }}
-    namespace: {{ $hubnamespace }}  
+    namespace: {{ .destinationns }}  
   project: {{ .project }}
   sources:
     - repoURL: {{ .repourl }}
