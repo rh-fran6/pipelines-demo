@@ -2,6 +2,7 @@ apiVersion: triggers.tekton.dev/v1beta1
 kind: TriggerTemplate
 metadata:
   name: vote-app
+  namespace: demo-pipeline
 spec:
   params:
   - name: git-repo-url

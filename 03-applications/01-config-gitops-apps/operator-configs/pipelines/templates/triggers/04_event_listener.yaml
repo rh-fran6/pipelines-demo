@@ -2,6 +2,7 @@ apiVersion: triggers.tekton.dev/v1beta1
 kind: EventListener
 metadata:
   name: vote-app
+  namespace: demo-pipeline
 spec:
   serviceAccountName: pipeline
   triggers:
