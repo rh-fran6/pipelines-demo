@@ -51,9 +51,9 @@ hubargo:
        targetrevision: main
        path: 03-applications/01-config-gitops-apps/operator-configs/eso
 
-     - name: openshift-pipelines
+     - name: pipelines-config
        repourl: https://github.com/rh-fran6/pipelines-demo.git
-       project: demo-app
+       project: infra
        targetrevision: main
        path: 03-applications/01-config-gitops-apps/operator-configs/pipelines
 
