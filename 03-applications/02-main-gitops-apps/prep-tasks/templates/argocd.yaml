@@ -1,19 +1,11 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ArgoCD
 metadata:
-  # finalizers:
-  # - argoproj.io/finalizer
-  # Changing the name affects the ClusterRoleBinding, the generated secret,
-  # route URL, and argocd.argoproj.io/managed-by annotations
-  name: {{ .Values.application.namespace }}-argocd
+  name: {{ .Values.hub.namespace }}-argocd
   namespace: {{ .Values.hub.namespace }}
   annotations:
     argocd.argoproj.io/compare-options: IgnoreExtraneous
-    # annotations:
-    # argocd.argoproj.io/sync-wave: "2"
 spec:
-# Adding health checks to argocd to prevent pvc resources
-# that aren't bound state from blocking deployments
   resourceHealthChecks:
   - kind: PersistentVolumeClaim
     check: |

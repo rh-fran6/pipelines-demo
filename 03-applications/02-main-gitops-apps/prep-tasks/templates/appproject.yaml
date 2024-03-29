@@ -8,23 +8,14 @@ metadata:
 spec:
   description: "GitOps for OpenShift Pipelines Demo"
   destinations:
-  - namespace: demo-app
-    server: https://kubernetes.default.svc
-  - namespace: demo-hub
-    server: https://kubernetes.default.svc
-  - namespace: external-secrets-operator
-    server: https://kubernetes.default.svc
-  - namespace: demo-pipeline
-    server: https://kubernetes.default.svc
-  # destinations:
-  # - namespace: '*'
-  #   server: '*'
-  # clusterResourceWhitelist:
-  # - group: '*'
-  #   kind: '*'
-  # namespaceResourceWhitelist:
-  # - group: '*'
-  #   kind: '*'
+  - namespace: '*'
+    server: '*'
+  clusterResourceWhitelist:
+  - group: '*'
+    kind: '*'
+  namespaceResourceWhitelist:
+  - group: '*'
+    kind: '*'
   sourceRepos:
   - '*'
 status: {}

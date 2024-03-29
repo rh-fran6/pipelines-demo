@@ -2,7 +2,6 @@ apiVersion: triggers.tekton.dev/v1beta1
 kind: Trigger
 metadata:
   name: vote-trigger
-  # namespace: demo-pipeline
 spec:
   serviceAccountName: pipeline
   interceptors:
