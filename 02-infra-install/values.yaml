@@ -53,7 +53,7 @@ hubargo:
 
      - name: openshift-pipelines
        repourl: https://github.com/rh-fran6/pipelines-demo.git
-       project: infra
+       project: demo-app
        targetrevision: main
        path: 03-applications/01-config-gitops-apps/operator-configs/pipelines
 
