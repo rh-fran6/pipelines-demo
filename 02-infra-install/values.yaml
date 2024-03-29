@@ -53,7 +53,7 @@ hubargo:
 
      - name: pipelines-config
        repourl: https://github.com/rh-fran6/pipelines-demo.git
-       project: infra
+       project: pipeline
        targetrevision: main
        path: 03-applications/01-config-gitops-apps/operator-configs/pipelines
 

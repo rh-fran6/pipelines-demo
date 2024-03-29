@@ -7,8 +7,6 @@ metadata:
   namespace: {{ $namespace }}
 spec:
   description: "GitOps for OpenShift Pipelines Demo"
-  # sourceNamespaces: 
-  #   - demo-hub
   destinations:
   - namespace: '*'
     server: '*'
