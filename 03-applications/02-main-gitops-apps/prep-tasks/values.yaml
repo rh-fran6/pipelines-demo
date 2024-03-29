@@ -2,8 +2,8 @@
 
 namespace: openshift-gitops
 
-application:
-   namespace: demo-app
+# application:
+#    namespace: demo-app
 
 hub:
    namespace: demo-hub
