@@ -12,3 +12,9 @@ projects:
   - name: pipeline
   - name: demo-app
   - name: infra
+
+# namespaces:
+#    - name: demo-app
+#    - name: demo-hub
+#    - name: external-secrets-operator
+#    - name: demo-pipeline
