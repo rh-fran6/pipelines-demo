@@ -5,3 +5,5 @@ namespaces:
    - name: demo-hub
    - name: external-secrets-operator
    - name: demo-pipeline
+
+argocdhubns: demo-hub

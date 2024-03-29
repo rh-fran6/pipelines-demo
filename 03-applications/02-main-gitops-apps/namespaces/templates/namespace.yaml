@@ -1,3 +1,4 @@
+{{ $ns := .Values.argocdhubns }}
 {{- range $key, $value := .Values.namespaces }}
 apiVersion: v1
 kind: Namespace
@@ -7,7 +8,7 @@ metadata:
     argocd.argoproj.io/sync-wave: "0"
   labels:
     openshift.io/cluster-monitoring: "true"
-    argocd.argoproj.io/managed-by: openshift-gitops
+    argocd.argoproj.io/managed-by: {{ $ns }}
 spec: {}
 ---
 {{- end }}
