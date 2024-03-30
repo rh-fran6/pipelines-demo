@@ -1,3 +1,22 @@
+# apiVersion: route.openshift.io/v1
+# kind: Route
+# metadata:
+#   labels:
+#     app: pipelines-vote-ui
+#   name: pipelines-vote-ui
+# spec:
+#   host: vote-here.apps.dd-aro.eastus.aroapp.io
+#   # port:
+#   #   targetPort: 8080-tcp
+#   tls:
+#     insecureEdgeTerminationPolicy: Redirect
+#     termination: edge
+#   to:
+#     kind: Service
+#     name: pipelines-vote-ui
+#     weight: 100
+
+---
 apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
@@ -5,13 +24,10 @@ metadata:
     app: pipelines-vote-ui
   name: pipelines-vote-ui
 spec:
-  host: vote-here.apps.dd-aro.eastus.aroapp.io
-  # port:
-  #   targetPort: 8080-tcp
-  tls:
-    insecureEdgeTerminationPolicy: Redirect
-    termination: edge
+  port:
+    targetPort: 8080-tcp
   to:
     kind: Service
     name: pipelines-vote-ui
     weight: 100
+
