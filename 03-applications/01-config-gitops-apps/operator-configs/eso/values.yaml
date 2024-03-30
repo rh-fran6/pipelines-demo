@@ -2,13 +2,17 @@ replicaCount: 1
 ## Operator Install Helm Chart ##
 
 externalsecrets:
-  externalsecretname: webhook-secret-akv-read
-  externalsecretns: demo-app
+  pipelineexternalsecretname: pipeline-secret-akv-read
+  appexternalsecretname: application-secret-akv-read
   appsecretstorename: akv-app-secretstore
   pipelinesecretstorename: akv-pipeline-secretstore
-  secretname: akv-sp-read
+  pipelinesecretname: akv-secret-read-pipeline
+  webhooksecretname: akv-secret-read-webhook
   operatornamespace: openshift-operators
-  reposecretname: repo-secret-akv-read
+  repoexternalsecretname: repo-secret-akv-read
+  appsecretname: app-secret-akv-read
+  pipelinetargetsecret: akv-pipeline-secret
+  apptargetsecret: akv-app-secret
 
 application:
   namespace: demo-app
