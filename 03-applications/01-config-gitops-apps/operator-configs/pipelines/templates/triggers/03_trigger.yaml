@@ -10,8 +10,8 @@ spec:
       params:
         - name: "secretRef"
           value:
-            secretName: github-secret
-            secretKey: secretToken
+            secretName: akv-pipeline-secret-value
+            secretKey: webhookSecret
         - name: "eventTypes"
           value: ["push"]
   bindings:
