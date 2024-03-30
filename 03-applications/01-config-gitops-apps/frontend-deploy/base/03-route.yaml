@@ -6,8 +6,8 @@ metadata:
   name: pipelines-vote-ui
 spec:
   host: vote-here.apps.dd-aro.eastus.aroapp.io
-  port:
-    targetPort: 8080-tcp
+  # port:
+  #   targetPort: 8080-tcp
   tls:
     insecureEdgeTerminationPolicy: Redirect
     termination: edge
