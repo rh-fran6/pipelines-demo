@@ -41,7 +41,7 @@ rules:
 - apiGroups: ["operators.coreos.com"]
   resources: ["clusterserviceversions"]
   verbs: ["get", "list", "update", "patch"]
-  resourceNames: ["{{ .Values.operator.controllerManager.startingCSV }}"]
+  resourceNames: ["external-secrets-operator.v0.9.11"]
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
