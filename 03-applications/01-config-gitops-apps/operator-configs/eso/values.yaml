@@ -4,7 +4,8 @@ replicaCount: 1
 externalsecrets:
   externalsecretname: webhook-secret-akv-read
   externalsecretns: demo-app
-  secretstorename: akv-cluster-secret-read
+  appsecretstorename: akv-app-secretstore
+  pipelinesecretstorename: akv-pipeline-secretstore
   secretname: akv-sp-read
   operatornamespace: openshift-operators
   reposecretname: repo-secret-akv-read
