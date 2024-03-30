@@ -5,8 +5,12 @@ metadata:
     app: pipelines-vote-ui
   name: pipelines-vote-ui
 spec:
+  host: vote-here.apps.dd-aro.eastus.aroapp.io
   port:
     targetPort: 8080-tcp
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: passthrough
   to:
     kind: Service
     name: pipelines-vote-ui
