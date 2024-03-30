@@ -1,66 +1,66 @@
-# Make sure you update namespace: field for each new namespace
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: eso-images-patch-sa
-  namespace: {{ .Values.eso_install_ns }}
-  labels:
-    app: external-secrets-operator
-    operator: external-secrets-operator
-    helm.sh/chart: eso-operator-patch-1.0.0
-    app.kubernetes.io/name: eso-operator-patch
-    app.kubernetes.io/instance: release-name
-    app.kubernetes.io/version: "v0.9.11"
-    app.kubernetes.io/managed-by: Helm
----
-kind: Role
-apiVersion: rbac.authorization.k8s.io/v1
-metadata:
-  name: eso-images-patch-sa
-  namespace: {{ .Values.eso_install_ns }}
-  labels:
-    app: external-secrets-operator
-    operator: external-secrets-operator
-    helm.sh/chart: eso-operator-patch-1.0.0
-    app.kubernetes.io/name: eso-operator-patch
-    app.kubernetes.io/instance: release-name
-    app.kubernetes.io/version: "v0.9.11"
-    app.kubernetes.io/managed-by: Helm
-rules:
-- apiGroups: ["apps"]
-  resources: ["deployments"]
-  verbs: ["get", "list", "update", "patch"]
-  resourceNames:
-  - external-secrets-operator-controller-manager
-  - external-secrets-operator
-  - external-secrets-operator-cert-controller
-  - external-secrets-operator-webhook
-- apiGroups: ["operators.coreos.com"]
-  resources: ["clusterserviceversions"]
-  verbs: ["get", "list"]
-- apiGroups: ["operators.coreos.com"]
-  resources: ["clusterserviceversions"]
-  verbs: ["get", "list", "update", "patch"]
-  resourceNames: ["external-secrets-operator.v0.9.11"]
----
-apiVersion: rbac.authorization.k8s.io/v1
-kind: RoleBinding
-metadata:
-  name: eso-images-patch-sa
-  namespace: {{ .Values.eso_install_ns }}
-  labels:
-    app: external-secrets-operator
-    operator: external-secrets-operator
-    helm.sh/chart: eso-operator-patch-1.0.0
-    app.kubernetes.io/name: eso-operator-patch
-    app.kubernetes.io/instance: release-name
-    app.kubernetes.io/version: "v0.9.11"
-    app.kubernetes.io/managed-by: Helm
-roleRef:
-  apiGroup: rbac.authorization.k8s.io
-  kind: Role
-  name: eso-images-patch-sa
-subjects:
-- kind: ServiceAccount
-  name: eso-images-patch-sa
-  namespace: {{ .Values.eso_install_ns }}
+# # Make sure you update namespace: field for each new namespace
+# apiVersion: v1
+# kind: ServiceAccount
+# metadata:
+#   name: eso-images-patch-sa
+#   namespace: {{ .Values.eso_install_ns }}
+#   labels:
+#     app: external-secrets-operator
+#     operator: external-secrets-operator
+#     helm.sh/chart: eso-operator-patch-1.0.0
+#     app.kubernetes.io/name: eso-operator-patch
+#     app.kubernetes.io/instance: release-name
+#     app.kubernetes.io/version: "v0.9.11"
+#     app.kubernetes.io/managed-by: Helm
+# ---
+# kind: Role
+# apiVersion: rbac.authorization.k8s.io/v1
+# metadata:
+#   name: eso-images-patch-sa
+#   namespace: {{ .Values.externalsecrets.operatornamespace }}
+#   labels:
+#     app: external-secrets-operator
+#     operator: external-secrets-operator
+#     helm.sh/chart: eso-operator-patch-1.0.0
+#     app.kubernetes.io/name: eso-operator-patch
+#     app.kubernetes.io/instance: release-name
+#     app.kubernetes.io/version: "v0.9.11"
+#     app.kubernetes.io/managed-by: Helm
+# rules:
+# - apiGroups: ["apps"]
+#   resources: ["deployments"]
+#   verbs: ["get", "list", "update", "patch"]
+#   resourceNames:
+#   - external-secrets-operator-controller-manager
+#   - external-secrets-operator
+#   - external-secrets-operator-cert-controller
+#   - external-secrets-operator-webhook
+# - apiGroups: ["operators.coreos.com"]
+#   resources: ["clusterserviceversions"]
+#   verbs: ["get", "list"]
+# - apiGroups: ["operators.coreos.com"]
+#   resources: ["clusterserviceversions"]
+#   verbs: ["get", "list", "update", "patch"]
+#   resourceNames: ["external-secrets-operator.v0.9.11"]
+# ---
+# apiVersion: rbac.authorization.k8s.io/v1
+# kind: RoleBinding
+# metadata:
+#   name: eso-images-patch-sa
+#   namespace: {{ .Values.externalsecrets.operatornamespace }}
+#   labels:
+#     app: external-secrets-operator
+#     operator: external-secrets-operator
+#     helm.sh/chart: eso-operator-patch-1.0.0
+#     app.kubernetes.io/name: eso-operator-patch
+#     app.kubernetes.io/instance: release-name
+#     app.kubernetes.io/version: "v0.9.11"
+#     app.kubernetes.io/managed-by: Helm
+# roleRef:
+#   apiGroup: rbac.authorization.k8s.io
+#   kind: Role
+#   name: eso-images-patch-sa
+# subjects:
+# - kind: ServiceAccount
+#   name: eso-images-patch-sa
+#   namespace: {{ .Values.externalsecrets.operatornamespace }}
