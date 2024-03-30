@@ -3,17 +3,29 @@ apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: eso-images-patch-sa
-  namespace: {{ .Values.operator.operator_namespace }}
+  namespace: {{ .Values.eso_install_ns }}
   labels:
-    {{- include "eso-operator-patch.labels" . | nindent 4 }}
+    app: external-secrets-operator
+    operator: external-secrets-operator
+    helm.sh/chart: eso-operator-patch-1.0.0
+    app.kubernetes.io/name: eso-operator-patch
+    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/version: "v0.9.11"
+    app.kubernetes.io/managed-by: Helm
 ---
 kind: Role
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: eso-images-patch-sa
-  namespace: {{ .Values.operator.operator_namespace }}
+  namespace: {{ .Values.eso_install_ns }}
   labels:
-    {{- include "eso-operator-patch.labels" . | nindent 4 }}
+    app: external-secrets-operator
+    operator: external-secrets-operator
+    helm.sh/chart: eso-operator-patch-1.0.0
+    app.kubernetes.io/name: eso-operator-patch
+    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/version: "v0.9.11"
+    app.kubernetes.io/managed-by: Helm
 rules:
 - apiGroups: ["apps"]
   resources: ["deployments"]
@@ -35,9 +47,15 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
   name: eso-images-patch-sa
-  namespace: {{ .Values.operator.operator_namespace }}
+  namespace: {{ .Values.eso_install_ns }}
   labels:
-    {{- include "eso-operator-patch.labels" . | nindent 4 }}
+    app: external-secrets-operator
+    operator: external-secrets-operator
+    helm.sh/chart: eso-operator-patch-1.0.0
+    app.kubernetes.io/name: eso-operator-patch
+    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/version: "v0.9.11"
+    app.kubernetes.io/managed-by: Helm
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
@@ -45,4 +63,4 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: eso-images-patch-sa
-  namespace: {{ .Values.operator.operator_namespace }}
+  namespace: {{ .Values.eso_install_ns }}

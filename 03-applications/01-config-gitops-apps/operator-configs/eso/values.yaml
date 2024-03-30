@@ -12,6 +12,8 @@ externalsecrets:
 application:
   namespace: demo-app
 
+eso_install_ns: openshift-operators
+
 pipeline:
    namespace: demo-pipeline
 

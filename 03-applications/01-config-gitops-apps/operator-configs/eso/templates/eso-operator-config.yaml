@@ -2,16 +2,22 @@ apiVersion: operator.external-secrets.io/v1alpha1
 kind: OperatorConfig
 metadata:
   name: external-secrets-operator
-  namespace: {{ .Values.operator.namespace }}
+  namespace: {{ .Values.externalsecrets.externalsecretns }}
   labels:
-    {{- include "eso-operator-patch.labels" . | nindent 4}}
+    app: external-secrets-operator
+    operator: external-secrets-operator
+    helm.sh/chart: eso-operator-patch-1.0.0
+    app.kubernetes.io/name: eso-operator-patch
+    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/version: "v0.9.11"
+    app.kubernetes.io/managed-by: Helm
 spec:
   certController:
     create: true
     image:
-      pullPolicy: {{ .Values.operator.operatorConfig.image.pullPolicy }}
-      repository: {{ .Values.operator.operatorConfig.image.repository }}
-      tag: {{ .Values.operator.operatorConfig.image.tag }}
+      pullPolicy: IfNotPresent
+      repository: ghcr.io/external-secrets/external-secrets
+      tag: v0.9.10
     rbac:
       create: true
     requeueInterval: 5m
@@ -19,20 +25,25 @@ spec:
       create: true
       name: ''
       podLabels:
-        {{- include "eso-operator-patch.labels" . | nindent 8 }}
+        podLabels:
+        app: external-secrets-operator
+        operator: external-secrets-operator
+        helm.sh/chart: eso-operator-patch-1.0.0
+        app.kubernetes.io/name: eso-operator-patch
+        app.kubernetes.io/instance: release-name
+        app.kubernetes.io/version: "v0.9.11"
+        app.kubernetes.io/managed-by: Helm
   concurrent: 1
   crds:
     createClusterExternalSecret: false
     createClusterSecretStore: false
   createOperator: true
   image:
-    pullPolicy: {{ .Values.operator.operatorConfig.image.pullPolicy }}
-    repository: {{ .Values.operator.operatorConfig.image.repository }}
-    tag: {{ .Values.operator.operatorConfig.image.tag }}
+    pullPolicy: IfNotPresent
+    repository: ghcr.io/external-secrets/external-secrets
+    tag: v0.9.10
   installCRDs: false
   leaderElect: false
-  # processClusterExternalSecret: true
-  # processClusterStore: true
   rbac:
     create: true
   replicaCount: 1
@@ -52,9 +63,9 @@ spec:
     certDir: /tmp/certs
     create: true
     image:
-      pullPolicy: {{ .Values.operator.operatorConfig.image.pullPolicy }}
-      repository: {{ .Values.operator.operatorConfig.image.repository }}
-      tag: {{ .Values.operator.operatorConfig.image.tag }}
+      pullPolicy: IfNotPresent
+      repository: ghcr.io/external-secrets/external-secrets
+      tag: v0.9.10
     rbac:
       create: true
     replicaCount: 1
