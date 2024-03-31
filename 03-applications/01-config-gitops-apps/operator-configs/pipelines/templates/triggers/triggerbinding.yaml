@@ -11,13 +11,3 @@ spec:
   - name: git-revision
     value: $(body.head_commit.id)
 
----
-apiVersion: tekton.dev/v1
-kind: TaskRun
-metadata:
-  name: buildah-task-copy
-spec:
-  taskRunTemplate:
-    serviceAccountName:  {{ .Values.gitreposa }}
-  taskRef:
-    name: buildah
