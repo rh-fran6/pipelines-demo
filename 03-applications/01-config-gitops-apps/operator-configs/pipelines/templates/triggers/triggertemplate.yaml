@@ -18,8 +18,8 @@ spec:
     metadata:
       generateName: build-deploy-$(tt.params.git-repo-name)-
     spec:
-      taskRunTemplate:
-        serviceAccountName: pipeline
+      # taskRunTemplate:
+      #   serviceAccountName: pipeline
       serviceAccountName: pipeline #{{ .Values.gitreposa }}
       pipelineRef:
         name: build-and-deploy
