@@ -30,7 +30,8 @@ spec:
       - name: git-revision
         value: $(tt.params.git-revision)
       - name: IMAGE
-        value: image-registry.openshift-image-registry.svc:5000/$(context.pipelineRun.namespace)/$(tt.params.git-repo-name)
+        # value: image-registry.openshift-image-registry.svc:5000/$(context.pipelineRun.namespace)/$(tt.params.git-repo-name)
+        value: quay.io/fanyaegb/pipelines-demo
       workspaces:
       - name: shared-workspace
         volumeClaimTemplate:
