@@ -3,6 +3,7 @@ replicaCount: 1
 
 externalsecrets:
   pipelineexternalsecretname: pipeline-secret-akv-read
+  webhookexternalsecretname: pipeline-secret-akv-read
   appexternalsecretname: application-secret-akv-read
   appsecretstorename: akv-app-secretstore
   pipelinesecretstorename: akv-pipeline-secretstore
@@ -11,8 +12,9 @@ externalsecrets:
   operatornamespace: openshift-operators
   repoexternalsecretname: repo-secret-akv-read
   appsecretname: app-secret-akv-read
-  pipelinetargetsecret: akv-pipeline-secret
+  pipelinetargetsecret: akv-pipeline-git-cred-secret
   apptargetsecret: akv-app-secret
+  webhooktargetsecret: akv-webhook-secret
 
 application:
   namespace: demo-app

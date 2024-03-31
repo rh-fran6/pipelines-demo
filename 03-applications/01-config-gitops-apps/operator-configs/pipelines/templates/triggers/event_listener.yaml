@@ -12,7 +12,7 @@ spec:
           params:
             - name: "secretRef"
               value:
-                secretName: akv-pipeline-secret-value
+                secretName: {{ .Values.webhooktargetsecret }}
                 secretKey: webhookSecret
             - name: "eventTypes"
               value: ["push"]
