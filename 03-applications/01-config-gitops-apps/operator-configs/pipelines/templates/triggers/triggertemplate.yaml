@@ -31,7 +31,9 @@ spec:
         value: $(tt.params.git-revision)
       - name: IMAGE
         # value: image-registry.openshift-image-registry.svc:5000/$(context.pipelineRun.namespace)/$(tt.params.git-repo-name)
-        value: quay.io/fanyaegb/pipelines-demo
+        value: quay.io/fanyaegb/pipelines-demo/$(tt.params.git-repo-name)
+      - name: IMAGE_PUSH_SECRET_NAME
+        value: akv-pipeline-secret-value
       workspaces:
       - name: shared-workspace
         volumeClaimTemplate:
