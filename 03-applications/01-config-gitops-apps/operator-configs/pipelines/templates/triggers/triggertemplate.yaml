@@ -21,7 +21,7 @@ spec:
       taskRunTemplate:
         serviceAccountName: pipeline
       # serviceAccountName: pipeline #{{ .Values.gitreposa }}
-      taskRunSpec:
+      taskRunSpecs:
          - pipelineTaskName: build-image
            taskServiceAccountName: {{ .Values.gitreposa }}
       pipelineRef:
