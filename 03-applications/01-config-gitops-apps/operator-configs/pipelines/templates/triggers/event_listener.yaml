@@ -12,7 +12,7 @@ spec:
           params:
             - name: "secretRef"
               value:
-                secretName: {{ .Values.webhooktargetsecret }}
+                secretName: {{ .Values.webhooktargetsecret }}-value
                 secretKey: webhookSecret
             - name: "eventTypes"
               value: ["push"]
