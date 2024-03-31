@@ -12,3 +12,5 @@ projects:
   - name: pipeline
   - name: demo-app
   - name: infra
+
+clusterdomain: apps.dd-aro.eastus.aroapp.io

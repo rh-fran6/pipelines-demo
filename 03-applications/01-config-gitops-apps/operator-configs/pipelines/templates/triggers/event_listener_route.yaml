@@ -14,4 +14,3 @@ spec:
     kind: Service
     name: el-{{ .Values.event_listener_name }}
     weight: 100
-status: {}
