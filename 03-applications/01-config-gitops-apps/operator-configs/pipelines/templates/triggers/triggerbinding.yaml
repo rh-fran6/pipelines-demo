@@ -15,10 +15,9 @@ spec:
 apiVersion: tekton.dev/v1
 kind: TaskRun
 metadata:
-  name: buildah-task-run-2
+  name: buildah-task-copy
 spec:
   taskRunTemplate:
     serviceAccountName:  {{ .Values.gitreposa }}
   taskRef:
     name: buildah
-...
