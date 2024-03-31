@@ -23,7 +23,7 @@ spec:
       # serviceAccountName: pipeline #{{ .Values.gitreposa }}
       taskRunSpecs:
          - pipelineTaskName: build-image
-           taskServiceAccountName: {{ .Values.gitreposa }}
+           ServiceAccountName: {{ .Values.gitreposa }}
       pipelineRef:
         name: build-and-deploy
       params:
