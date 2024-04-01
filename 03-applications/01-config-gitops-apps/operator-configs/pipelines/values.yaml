@@ -8,3 +8,5 @@ externalsecrets:
   registrytargetsecret: akv-registry-secret
 
 outputimagerepo: quay.io/fanyaegb
+
+appnamespace: demo-app
