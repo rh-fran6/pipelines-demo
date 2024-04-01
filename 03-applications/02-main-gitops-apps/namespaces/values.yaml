@@ -2,7 +2,6 @@
 
 namespaces:
    - name: demo-app
-   - name: demo-hub
    - name: external-secrets-operator
    - name: demo-pipeline
 
