@@ -8,7 +8,7 @@ metadata:
   annotations:
 {{- if $value.app }}
     argocd-image-updater.argoproj.io/image-list: image-alias=quay.io/fanyaegb/{{ $value.deploy }}:latest
-    argocd-image-updater.argoproj.io/ui-alias.update-strategy: digest
+    argocd-image-updater.argoproj.io/ui-alias.update-strategy: latest
     argocd-image-updater.argoproj.io/myalias.pull-secret: pullsecret:{{ $hubnamespace }}/{{ $registryname }}-value
     argocd-image-updater.argoproj.io/write-back-method: argocd ## change to git later. More robust 
     argocd-image-updater.argoproj.io/git-branch: main 
