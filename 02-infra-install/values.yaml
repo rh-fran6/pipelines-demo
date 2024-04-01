@@ -37,7 +37,8 @@ hubargo:
        repourl: https://github.com/rh-fran6/pipelines-demo.git
        project: demo-app
        destinationns: demo-app
-       app: pipeline-vote-ui
+       deploy: pipeline-vote-api
+       app: true
        targetrevision: main
        path: 03-applications/01-config-gitops-apps/backend-deploy/overlays
 
@@ -45,7 +46,8 @@ hubargo:
        repourl: https://github.com/rh-fran6/pipelines-demo.git
        project: demo-app
        destinationns: demo-app
-       app: pipeline-vote-ui
+       deploy: pipeline-vote-ui
+       app: true
        targetrevision: main
        path: 03-applications/01-config-gitops-apps/frontend-deploy/overlays
 

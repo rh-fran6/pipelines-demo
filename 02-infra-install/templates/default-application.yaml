@@ -5,13 +5,13 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   annotations:
-  {{- if .app -}}
-    argocd-image-updater.argoproj.io/image-list: image-alias=quay.io/fanyaegb/{{ .app }}:latest
+  # {{- if .app -}}
+    argocd-image-updater.argoproj.io/image-list: image-alias=quay.io/fanyaegb/{{ .deploy }}:latest
     argocd-image-updater.argoproj.io/ui-alias.update-strategy: digest
     argocd-image-updater.argoproj.io/write-back-method: git  
     argocd-image-updater.argoproj.io/git-branch: main 
     argocd-image-updater.argoproj.io/myalias.force-update: "true"
-  {{- end }}
+  # {{- end }}
   name: {{ .name }}
   namespace: {{ $hubnamespace }}
 spec:
