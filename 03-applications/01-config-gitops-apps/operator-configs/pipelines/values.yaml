@@ -5,7 +5,6 @@ event_listener_name: vote-app
 externalsecrets:
   pipelinetargetsecret: akv-pipeline-git-cred-secret
   webhooktargetsecret: akv-webhook-secret
-
-gitreposa: git-auth-sa-bot
+  registrytargetsecret: akv-registry-secret
 
 outputimagerepo: quay.io/fanyaegb

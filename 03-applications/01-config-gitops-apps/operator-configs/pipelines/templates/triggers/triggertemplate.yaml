@@ -20,9 +20,6 @@ spec:
     spec:
       taskRunTemplate:
         serviceAccountName: pipeline
-      # podTemplate:  ##Add starts
-      #   securityContext:
-      #     fsGroup: 65532  ## add ends
       pipelineRef:
         name: build-and-deploy
       params:
@@ -33,7 +30,6 @@ spec:
       - name: git-revision
         value: $(tt.params.git-revision)
       - name: IMAGE
-        # value: image-registry.openshift-image-registry.svc:5000/$(context.pipelineRun.namespace)/$(tt.params.git-repo-name)
         value: {{ .Values.outputimagerepo }}/$(tt.params.git-repo-name)
       workspaces:
       - name: shared-workspace
@@ -44,6 +40,6 @@ spec:
             resources:
               requests:
                 storage: 500Mi
-      - name: registry-credentials  ## Added from here to end
+      - name: registry-credentials 
         secret:
-          secretName: akv-registry-secret-value
+          secretName: {{ .Values.externalsecrets.registrytargetsecret }}-value

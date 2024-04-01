@@ -10,9 +10,7 @@ externalsecrets:
   pipelinesecretname: akv-secret-read-pipeline
   webhooksecretname: akv-secret-read-webhook
   operatornamespace: openshift-operators
-  repoexternalsecretname: repo-secret-akv-read
   appsecretname: app-secret-akv-read
-  pipelinetargetsecret: akv-pipeline-git-cred-secret
   apptargetsecret: akv-app-secret
   webhooktargetsecret: akv-webhook-secret
   registryexternalsecretname: registry-secret-akv-read

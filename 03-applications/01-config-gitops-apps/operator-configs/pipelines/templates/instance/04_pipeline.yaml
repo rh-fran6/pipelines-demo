@@ -5,7 +5,7 @@ metadata:
 spec:
   workspaces:
   - name: shared-workspace
-  - name: registry-credentials #Added
+  - name: registry-credentials
   params:
   - name: deployment-name
     type: string
