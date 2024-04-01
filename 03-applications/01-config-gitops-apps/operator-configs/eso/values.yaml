@@ -15,7 +15,7 @@ externalsecrets:
   pipelinetargetsecret: akv-pipeline-git-cred-secret
   apptargetsecret: akv-app-secret
   webhooktargetsecret: akv-webhook-secret
-  registryexternalsecretname: pipeline-secret-akv-read
+  registryexternalsecretname: registry-secret-akv-read
   registrytargetsecret: akv-registry-secret
 
 application:
