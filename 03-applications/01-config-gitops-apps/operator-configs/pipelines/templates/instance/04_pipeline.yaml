@@ -5,6 +5,7 @@ metadata:
 spec:
   workspaces:
   - name: shared-workspace
+  - name: registry-credentials #Added
   params:
   - name: deployment-name
     type: string
@@ -36,18 +37,33 @@ spec:
       value: "true"
     - name: revision
       value: $(params.git-revision)
-  - name: build-image
+  - name: build-push
     taskRef:
-      name: buildah
-      kind: ClusterTask
+      name: kaniko
     params:
     - name: IMAGE
       value: $(params.IMAGE)
     workspaces:
     - name: source
-      workspace: shared-workspace
+      workspaces: 
+      - name: source
+        workspace: shared-workspace
+      - name: dockerconfig
+        workspace: registry-credentials
     runAfter:
     - fetch-repository
+  # - name: build-image
+  #   taskRef:
+  #     name: buildah
+  #     kind: ClusterTask
+  #   params:
+  #   - name: IMAGE
+  #     value: $(params.IMAGE)
+  #   workspaces:
+  #   - name: source
+  #     workspace: shared-workspace
+  #   runAfter:
+  #   - fetch-repository
   # - name: apply-manifests
   #   taskRef:
   #     name: apply-manifests
