@@ -39,7 +39,8 @@ spec:
       value: $(params.git-revision)
   - name: build-push
     taskRef:
-      name: kaniko
+      name: buildah
+      kind: ClusterTask
     params:
     - name: IMAGE
       value: $(params.IMAGE)
