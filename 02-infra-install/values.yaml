@@ -65,6 +65,13 @@ hubargo:
        targetrevision: main
        path: 03-applications/01-config-gitops-apps/operator-configs/pipelines
 
+     - name: argocd-image-updater
+       repourl: https://github.com/rh-fran6/pipelines-demo.git
+       project: pipeline
+       destinationns: demo-hub
+       targetrevision: main
+       path: 03-applications/01-config-gitops-apps/operator-configs/argocdimageupdater
+
 
 externalsecrets:
   registrytargetsecret: akv-registry-secret
