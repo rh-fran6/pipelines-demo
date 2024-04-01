@@ -20,9 +20,9 @@ spec:
     spec:
       taskRunTemplate:
         serviceAccountName: pipeline
-      podTemplate:  ##Add starts
-        securityContext:
-          fsGroup: 65532  ## add ends
+      # podTemplate:  ##Add starts
+      #   securityContext:
+      #     fsGroup: 65532  ## add ends
       pipelineRef:
         name: build-and-deploy
       params:
