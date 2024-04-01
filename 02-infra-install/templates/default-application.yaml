@@ -4,6 +4,11 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: ui-alias=quay.io/fanyaegb/pipeline-vote-ui:latest
+    argocd-image-updater.argoproj.io/ui-alias.update-strategy: digest
+    argocd-image-updater.argoproj.io/image-list: api-alias=quay.io/fanyaegb/pipeline-vote-api:latest
+    argocd-image-updater.argoproj.io/api-alias.update-strategy: digest
   name: {{ .name }}
   namespace: {{ $hubnamespace }}
 spec:
