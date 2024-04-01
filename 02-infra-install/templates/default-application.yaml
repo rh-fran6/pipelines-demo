@@ -1,5 +1,6 @@
 {{ $hubnamespace := .Values.hubargo.namespace }}
 {{ $hubserver := .Values.hubargo.server }}
+{{ $registryname := .Values.externalsecrets.registrytargetsecret }}
 {{- range $key, $value := .Values.hubargo.app }}
 apiVersion: argoproj.io/v1alpha1
 kind: Application
@@ -8,6 +9,7 @@ metadata:
 {{- if $value.app }}
     argocd-image-updater.argoproj.io/image-list: image-alias=quay.io/fanyaegb/{{ $value.deploy }}:latest
     argocd-image-updater.argoproj.io/ui-alias.update-strategy: digest
+    argocd-image-updater.argoproj.io/myalias.pull-secret: pullsecret:{{ $hubnamespace }}/{{ $registryname }}-value
     argocd-image-updater.argoproj.io/write-back-method: git  
     argocd-image-updater.argoproj.io/git-branch: main 
     argocd-image-updater.argoproj.io/myalias.force-update: "true"

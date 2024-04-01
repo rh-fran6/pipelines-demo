@@ -65,4 +65,8 @@ hubargo:
        targetrevision: main
        path: 03-applications/01-config-gitops-apps/operator-configs/pipelines
 
+
+externalsecrets:
+  registrytargetsecret: akv-registry-secret
+
     
