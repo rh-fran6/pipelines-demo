@@ -15,14 +15,21 @@ spec:
         app: pipelines-vote-ui
     spec:
       containers:
-        - image: quay.io/openshift-pipeline/vote-ui:latest
+        - image: quay.io/fanyaegb/pipeline-vote-ui:latest
           imagePullPolicy: Always
           name: pipelines-vote-ui
           ports:
             - containerPort: 8080
               protocol: TCP
             - containerPort: 9090
-              protocol: TCP
+              protocol: TCP          
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "250m"
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
           env:
             - name: VOTING_API_SERVICE_HOST
               value: pipelines-vote-api
