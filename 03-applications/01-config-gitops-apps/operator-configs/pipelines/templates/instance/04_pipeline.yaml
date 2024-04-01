@@ -51,13 +51,13 @@ spec:
       workspace: registry-credentials
     runAfter:
     - fetch-repository
-  # - name: build-image
-  #   taskRef:
-  #     name: buildah
-  #     kind: ClusterTask
-  #   params:
-  #   - name: IMAGE
-  #     value: $(params.IMAGE)
+  - name: redeploy
+    taskRef:
+      name: openshift-client
+      kind: ClusterTask
+    params:
+    - name: SCRIPT
+      value: "oc get deployment -n demo-app; oc rollout restart deployment/$(params.deployment-name)"
   #   workspaces:
   #   - name: source
   #     workspace: shared-workspace
