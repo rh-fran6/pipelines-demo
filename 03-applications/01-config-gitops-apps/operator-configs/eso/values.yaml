@@ -15,6 +15,8 @@ externalsecrets:
   webhooktargetsecret: akv-webhook-secret
   registryexternalsecretname: registry-secret-akv-read
   registrytargetsecret: akv-registry-secret
+  argocdsecretstorename: akv-argocd-secretstore
+  argocdsecretname: akv-secret-read-pipeline
 
 application:
   namespace: demo-app
