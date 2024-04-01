@@ -46,4 +46,4 @@ spec:
                 storage: 500Mi
       - name: registry-credentials  ## Added from here to end
         secret:
-          secretName: registrytargetsecret
+          secretName: akv-registry-secret

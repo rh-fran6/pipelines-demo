@@ -16,7 +16,7 @@ externalsecrets:
   apptargetsecret: akv-app-secret
   webhooktargetsecret: akv-webhook-secret
   registryexternalsecretname: pipeline-secret-akv-read
-  registrytargetsecret: akv-webhook-secret
+  registrytargetsecret: akv-registry-secret
 
 application:
   namespace: demo-app
