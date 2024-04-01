@@ -10,3 +10,5 @@ externalsecrets:
 outputimagerepo: quay.io/fanyaegb
 
 appnamespace: demo-app
+
+pipelinsns: demo-pipeline
