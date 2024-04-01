@@ -2,17 +2,17 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: pipelines-vote-api
-  name: pipelines-vote-api
+    app: pipeline-vote-api
+  name: pipeline-vote-api
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: pipelines-vote-api
+      app: pipeline-vote-api
   template:
     metadata:
       labels:
-        app: pipelines-vote-api
+        app: pipeline-vote-api
     spec:
       containers:
         - image: quay.io/fanyaegb/pipeline-vote-api:latest
