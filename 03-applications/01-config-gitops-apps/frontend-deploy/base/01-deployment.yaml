@@ -32,6 +32,6 @@ spec:
               cpu: "500m"
           env:
             - name: VOTING_API_SERVICE_HOST
-              value: pipelines-vote-api
+              value: pipeline-vote-api
             - name: VOTING_API_SERVICE_PORT
               value: "9000"
