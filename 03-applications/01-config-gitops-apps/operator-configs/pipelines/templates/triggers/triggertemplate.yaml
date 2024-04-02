@@ -43,3 +43,5 @@ spec:
       - name: registry-credentials 
         secret:
           secretName: {{ .Values.externalsecrets.registrytargetsecret }}-value
+      - name: sonar-settings
+        emptyDir: {}
