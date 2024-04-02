@@ -61,22 +61,22 @@ spec:
       image: registry.access.redhat.com/ubi8/ubi-minimal:8.2
       workingDir: $(workspaces.source.path)
       env:
-        # - name: SONAR_HOST_URL
-        #   value: $(params.SONAR_HOST_URL)
-        # - name: SONAR_PROJECT_KEY
-        #   value: $(params.SONAR_PROJECT_KEY)
+        - name: SONAR_HOST_URL
+          value: $(params.SONAR_HOST_URL)
+        - name: SONAR_PROJECT_KEY
+          value: $(params.SONAR_PROJECT_KEY)
         # - name: SONAR_ORGANIZATION
         #   value: $(params.SONAR_ORGANIZATION)
-        - name: SONAR_HOST_URL
-          valueFrom:
-            secretKeyRef:
-              name: {{ .Values.externalsecrets.registrytargetsecret }}-value
-              key: SONARHOSTURL
-        - name: SONARPROJECTKEY
-          valueFrom:
-            secretKeyRef:
-              name: {{ .Values.externalsecrets.registrytargetsecret }}-value
-              key: SONARPROJECTKEY
+        # - name: SONAR_HOST_URL
+        #   valueFrom:
+        #     secretKeyRef:
+        #       name: {{ .Values.externalsecrets.registrytargetsecret }}-value
+        #       key: SONARHOSTURL
+        # - name: SONARPROJECTKEY
+        #   valueFrom:
+        #     secretKeyRef:
+        #       name: {{ .Values.externalsecrets.registrytargetsecret }}-value
+        #       key: SONARPROJECTKEY
         # - name: SONAR_ORGANIZATION
         #   valueFrom:
         #     secretKeyRef:
