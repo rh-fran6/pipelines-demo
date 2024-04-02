@@ -44,4 +44,10 @@ spec:
         secret:
           secretName: {{ .Values.externalsecrets.registrytargetsecret }}-value
       - name: sonar-settings
-        emptyDir: {}
+        volumeClaimTemplate:
+          spec:
+            accessModes:
+              - ReadWriteOnce
+            resources:
+              requests:
+                storage: 30Mi
