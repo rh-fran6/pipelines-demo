@@ -32,7 +32,7 @@ spec:
       - name: IMAGE
         value: {{ .Values.outputimagerepo }}/$(tt.params.git-repo-name)
       - name: SONAR_HOST_URL
-          value: http://main-components-sonarqube.openshift-gitops.svc.cluster.local:9000
+        value: http://main-components-sonarqube.openshift-gitops.svc.cluster.local:9000
       - name: SONAR_PROJECT_KEY
         value: sqp_142b54d607bd9cd9996974c14696fd39e5e9bc07
       workspaces:
