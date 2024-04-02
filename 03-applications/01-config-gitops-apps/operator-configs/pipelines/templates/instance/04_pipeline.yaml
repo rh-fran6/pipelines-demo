@@ -38,16 +38,6 @@ spec:
       value: "true"
     - name: revision
       value: $(params.git-revision)
-  - name: code-analysis
-    taskRef:
-      name: sonarqube-scanner
-    runAfter:
-      - fetch-repository
-    # params:
-    #   - name: SONAR_HOST_URL
-    #     value: http://main-components-sonarqube.openshift-gitops.svc.cluster.local:9000
-    #   - name: SONAR_PROJECT_KEY
-    #     value: demo-$(param.deployment-name)
     workspaces:
     - name: source
       workspace: shared-workspace
@@ -66,7 +56,7 @@ spec:
     - name: dockerconfig
       workspace: registry-credentials
     runAfter:
-    - code-analysis
+    - fetch-repository
   - name: redeploy
     taskRef:
       name: openshift-client
@@ -76,26 +66,3 @@ spec:
       value: "oc get deployment -n demo-app; oc rollout restart deployment/$(params.deployment-name) -n demo-app"
     runAfter:
     - build-push
-  #   workspaces:
-  #   - name: source
-  #     workspace: shared-workspace
-  #   runAfter:
-  #   - fetch-repository
-  # - name: apply-manifests
-  #   taskRef:
-  #     name: apply-manifests
-  #   workspaces:
-  #   - name: source
-  #     workspace: shared-workspace
-  #   runAfter:
-  #   - build-image
-  # - name: update-deployment
-  #   taskRef:
-  #     name: update-deployment
-  #   params:
-  #   - name: deployment
-  #     value: $(params.deployment-name)
-  #   - name: IMAGE
-  #     value: $(params.IMAGE)
-  #   runAfter:
-  #   - apply-manifests
