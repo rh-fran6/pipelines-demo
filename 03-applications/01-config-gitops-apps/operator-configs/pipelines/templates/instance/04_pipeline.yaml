@@ -6,7 +6,6 @@ spec:
   workspaces:
   - name: shared-workspace
   - name: registry-credentials
-  - name: sonar-settings
   params:
   - name: deployment-name
     type: string
@@ -41,8 +40,6 @@ spec:
     workspaces:
     - name: source
       workspace: shared-workspace
-    - name: sonar-settings
-      workspace: sonar-settings
   - name: build-push
     taskRef:
       name: buildah
