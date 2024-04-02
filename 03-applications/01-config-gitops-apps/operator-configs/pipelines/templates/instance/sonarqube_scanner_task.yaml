@@ -70,12 +70,12 @@ spec:
         - name: SONAR_HOST_URL
           valueFrom:
             secretKeyRef:
-              name: {{ .Values.externalsecrets.pipelinetargetsecret }}-value
+              name: {{ .Values.externalsecrets.registrytargetsecret }}-value
               key: SONARHOSTURL
         - name: SONARPROJECTKEY
           valueFrom:
             secretKeyRef:
-              name: {{ .Values.externalsecrets.pipelinetargetsecret }}-value
+              name: {{ .Values.externalsecrets.registrytargetsecret }}-value
               key: SONARPROJECTKEY
         # - name: SONAR_ORGANIZATION
         #   valueFrom:
