@@ -43,11 +43,11 @@ spec:
       name: sonarqube-scanner
     runAfter:
       - fetch-repository
-    params:
-      - name: SONAR_HOST_URL
-        value: http://main-components-sonarqube.openshift-gitops.svc.cluster.local:9000
-      - name: SONAR_PROJECT_KEY
-        value: demo-$(param.deployment-name)
+    # params:
+    #   - name: SONAR_HOST_URL
+    #     value: http://main-components-sonarqube.openshift-gitops.svc.cluster.local:9000
+    #   - name: SONAR_PROJECT_KEY
+    #     value: demo-$(param.deployment-name)
     workspaces:
     - name: source
       workspace: shared-workspace

@@ -40,9 +40,11 @@ spec:
             resources:
               requests:
                 storage: 500Mi
+
       - name: registry-credentials 
         secret:
           secretName: {{ .Values.externalsecrets.registrytargetsecret }}-value
+          
       - name: sonar-settings
         volumeClaimTemplate:
           spec:
