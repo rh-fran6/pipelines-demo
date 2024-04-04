@@ -2,6 +2,7 @@ apiVersion: tekton.dev/v1
 kind: Pipeline
 metadata:
   name: build-and-deploy
+  namespace: {{ .Values.pipelinsns }}
 spec:
   workspaces:
   - name: shared-workspace

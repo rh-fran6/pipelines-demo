@@ -7,6 +7,7 @@ metadata:
     argocd.argoproj.io/instance: pipelines-config
     eventlistener: {{ .Values.event_listener_name }}
   name: el-{{ .Values.event_listener_name }}
+  namespace: {{ .Values.pipelinsns }}
 spec:
   port:
     targetPort: http-listener
