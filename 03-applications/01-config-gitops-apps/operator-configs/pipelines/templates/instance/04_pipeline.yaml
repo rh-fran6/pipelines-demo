@@ -60,26 +60,3 @@ spec:
       value: "oc get deployment -n demo-app; oc rollout restart deployment/$(params.deployment-name) -n demo-app"
     runAfter:
     - build-push
-  #   workspaces:
-  #   - name: source
-  #     workspace: shared-workspace
-  #   runAfter:
-  #   - fetch-repository
-  # - name: apply-manifests
-  #   taskRef:
-  #     name: apply-manifests
-  #   workspaces:
-  #   - name: source
-  #     workspace: shared-workspace
-  #   runAfter:
-  #   - build-image
-  # - name: update-deployment
-  #   taskRef:
-  #     name: update-deployment
-  #   params:
-  #   - name: deployment
-  #     value: $(params.deployment-name)
-  #   - name: IMAGE
-  #     value: $(params.IMAGE)
-  #   runAfter:
-  #   - apply-manifests
