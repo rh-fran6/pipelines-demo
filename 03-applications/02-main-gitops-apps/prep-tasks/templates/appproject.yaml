@@ -13,9 +13,14 @@ spec:
   clusterResourceWhitelist:
   - group: '*'
     kind: '*'
-  namespaceResourceWhitelist:
-  - group: '*'
-    kind: '*'
+  namespaceResourceBlacklist:
+  - group: tekton.dev
+    kind: TaskRun
+  - group: tekton.dev
+    kind: PipelineRun
+  # namespaceResourceWhitelist:
+  # - group: '*'
+  #   kind: '*'
   sourceRepos:
   - '*'
 status: {}
