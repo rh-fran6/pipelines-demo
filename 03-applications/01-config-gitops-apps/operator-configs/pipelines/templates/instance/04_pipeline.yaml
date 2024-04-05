@@ -60,7 +60,7 @@ spec:
     - name: SCRIPT
       value: "oc get deployment -n demo-app; oc rollout restart deployment/$(params.deployment-name) -n demo-app"
     workspaces:
-    - name: source
+    - name: redeploy
       workspace: shared-workspace
     runAfter:
     - build-push
