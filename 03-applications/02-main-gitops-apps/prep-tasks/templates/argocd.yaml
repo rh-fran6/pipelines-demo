@@ -82,10 +82,14 @@ spec:
         memory: 256Mi
   resourceExclusions: |
     - apiGroups:
-      - tekton.dev
+      - tekton.dev/v1
+      kinds:
+      - PipelineRun
+    - apiGroups:
+      - tekton.dev/v1beta1
       kinds:
       - TaskRun
-      - PipelineRun
+
   resourceHealthChecks:
     - check: |
         hs = {}
