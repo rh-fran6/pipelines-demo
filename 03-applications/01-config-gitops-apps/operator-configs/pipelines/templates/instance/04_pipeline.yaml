@@ -60,7 +60,7 @@ spec:
     - name: SCRIPT
       value: "oc get deployment -n demo-app; oc rollout restart deployment/$(params.deployment-name) -n demo-app"
     workspaces:
-    - name: redeploy
+    - name: manifest-dir
       workspace: shared-workspace
     runAfter:
     - build-push
