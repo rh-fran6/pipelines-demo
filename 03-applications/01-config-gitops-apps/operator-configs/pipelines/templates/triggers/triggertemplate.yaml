@@ -21,6 +21,9 @@ spec:
     spec:
       taskRunTemplate:
         serviceAccountName: pipeline
+      taskRunSpecs:
+        - pipelineTaskName: redeploy
+          taskServiceAccountName: redeploy-sa-demo-app
       pipelineRef:
         name: build-and-deploy
       params:
